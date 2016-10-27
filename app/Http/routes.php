@@ -16,3 +16,5 @@ Route::get('/', function () {
 });
 
 Route::post('auth/login', 'AuthController@userAuth');
+
+Route::post('auth/signup', 'AuthController@userSignup');
