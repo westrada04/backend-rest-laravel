@@ -16,3 +16,9 @@ Route::get('/', function () {
 });
 
 Route::post('auth/login', 'AuthController@userAuth');
+
+Route::resource('nino','NinoController');
+
+Route::post('posicion','NinoController@posicion');
+
+Route::post('seguidos','NinoController@seguidos');

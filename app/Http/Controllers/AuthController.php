@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Tymon\JWTAuth\Exceptions\JWTException;
-use Tymon\JWTAuth\JWTAuth;
+use JWTAuth;
 
 class AuthController extends Controller
 {
@@ -18,7 +19,7 @@ class AuthController extends Controller
         ]);
 
         $credenciales = $request->only('email','password');
-
+        
         try {
             if (! $token = JWTAuth::attempt($credenciales) ){
                 return response()->json(['error' => 'Credenciales Invalidas'],401);
@@ -30,4 +31,5 @@ class AuthController extends Controller
 
         return response()->json(compact('token','user'));
     }
+
 }
